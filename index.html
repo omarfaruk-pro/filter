@@ -1,0 +1,231 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body {
+            padding: 30px;
+        }
+        .user-filter {
+            max-width: 900px;
+            border: 1px solid #bbb;
+            margin: auto;
+            padding: 40px;
+            padding-bottom: 0;
+            border-radius: 8px;
+        }
+        .user-filter table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+        .user-filter tr {
+            display: table-row;
+        }
+        .user-filter th {
+            padding: 10px;
+            border-bottom: 1px solid #bbb;
+            text-align: left;
+        }
+        .user-filter td {
+            padding: 10px;
+            border-top: 1px solid #bbb;
+        }
+        .user-filter tr:first-child td {
+            border-bottom: none;
+        }
+        .subject-filter {
+            width: 600px;
+            margin: auto;
+            padding: 20px;
+            padding-bottom: 0;
+            border: 1px solid #bbb;
+            border-radius: 8px;
+            margin-top: 50px;
+        }
+        input {
+            width: 100%;
+            padding: 10px;
+            font-size: 18px;
+            margin-bottom: 10px;
+            border: 1px solid #bbb;
+            border-radius: 4px;
+        }
+        ul {
+            list-style: none;
+        }
+        li {
+            padding: 20px 10px;
+            border-bottom: 1px solid #bbb;
+            font-size: 18px;
+        }
+        li:last-child {
+            border-bottom: none;
+        }
+    </style>
+</head>
+<body>
+    
+    <div class="user-filter">
+        <div>
+            <input type="text" id="userFilterInput" placeholder="Search Student...">
+        </div>
+        <table>
+            <thead>
+                <tr>
+                    <th>Name</th>
+                    <th>Email</th>
+                    <th>Subject</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>Omar Faruk</td>
+                    <td>omarf01851@gmail.com</td>
+                    <td>Physics</td>
+                </tr>
+                <tr>
+                    <td>Rahim Uddin</td>
+                    <td>rahim.uddin123@gmail.com</td>
+                    <td>Chemistry</td>
+                </tr>
+                <tr>
+                    <td>Sara Islam</td>
+                    <td>sara.islam789@gmail.com</td>
+                    <td>Mathematics</td>
+                </tr>
+                <tr>
+                    <td>Amina Khatun</td>
+                    <td>amina.khatun456@gmail.com</td>
+                    <td>Biology</td>
+                </tr>
+                <tr>
+                    <td>Kamal Hossain</td>
+                    <td>kamal.hossain@gmail.com</td>
+                    <td>Computer Science</td>
+                </tr>
+                <tr>
+                    <td>Fatema Begum</td>
+                    <td>fatema.begum001@gmail.com</td>
+                    <td>English Literature</td>
+                </tr>
+                <tr>
+                    <td>Tariq Hasan</td>
+                    <td>tariq.hasan999@gmail.com</td>
+                    <td>History</td>
+                </tr>
+                <tr>
+                    <td>Tariq Hasan</td>
+                    <td>tariq.hasan999@gmail.com</td>
+                    <td>History</td>
+                </tr>
+                <tr>
+                    <td>Sadia Ahmed</td>
+                    <td>sadia.ahmed56@gmail.com</td>
+                    <td>Philosophy</td>
+                </tr>
+                <tr>
+                    <td>Rakibul Islam</td>
+                    <td>rakibul.islam786@gmail.com</td>
+                    <td>Economics</td>
+                </tr>
+                <tr>
+                    <td>Sumaiya Akter</td>
+                    <td>sumaiya.akter78@gmail.com</td>
+                    <td>Political Science</td>
+                </tr>
+                <tr>
+                    <td>Fahim Rahman</td>
+                    <td>fahim.rahman77@gmail.com</td>
+                    <td>Sociology</td>
+                </tr>
+                <tr>
+                    <td>Arman Ali</td>
+                    <td>arman.ali654@gmail.com</td>
+                    <td>Psychology</td>
+                </tr>
+                <tr>
+                    <td>Nadia Karim</td>
+                    <td>nadia.karim23@gmail.com</td>
+                    <td>Statistics</td>
+                </tr>
+                <tr>
+                    <td>Hasan Mahmud</td>
+                    <td>hasan.mahmud89@gmail.com</td>
+                    <td>Geography</td>
+                </tr>
+                <tr>
+                    <td>Shamima Sultana</td>
+                    <td>shamima.sultana02@gmail.com</td>
+                    <td>Anthropology</td>
+                </tr>                
+                <tr>
+                    <td>Abdullah Al Mamun</td>
+                    <td>abdullahalmamun@gmail</td>
+                    <td>English</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+
+    <div class="subject-filter">
+        <div>
+            <input type="text" id="subjectFilterInput" placeholder="Search Subject...">
+        </div>
+        <ul class="subject-list">
+            <li>Bangla</li>
+            <li>English</li>
+            <li>Physics</li>
+            <li>Chemistry</li>
+            <li>Biology</li>
+            <li>Geography</li>
+            <li>History</li>
+            <li>Economics</li>
+            <li>Political Science</li>
+            <li>Sociology</li>
+            <li>Psychology</li>
+            <li>Mathematics</li>
+            <li>Quantum Physics</li>
+            <li>Quantum Chemistry</li>
+        </ul>
+    </div>
+    <script>
+        const userFilterInput = document.getElementById('userFilterInput');
+        const tableRows = document.querySelectorAll('.user-filter tbody tr');
+
+        userFilterInput.addEventListener('input', () => {
+            const userInputValue = userFilterInput.value.toLowerCase();
+            
+            tableRows.forEach(row => {
+                const rowText = Array.from(row.children).map(cell => cell.textContent.toLowerCase()).join(' ');
+                
+                if (rowText.includes(userInputValue)) {
+                    row.style.display = 'table-row';
+                } else {
+                    row.style.display = 'none';
+                }
+            });
+        });
+
+        const subjectFilterInput = document.getElementById('subjectFilterInput');
+        const listItems = document.querySelectorAll('.subject-list li');
+
+        subjectFilterInput.addEventListener('input', () => {
+            const inputValue = subjectFilterInput.value.toLowerCase();
+            listItems.forEach(item => {
+                if (item.textContent.toLowerCase().includes(inputValue)) {
+                    item.style.display = 'block';
+                } else {
+                    item.style.display = 'none';
+                }
+            });
+        });
+    </script>
+</body>
+</html>
